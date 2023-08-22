@@ -1,8 +1,8 @@
 <button (click)="click(1)">click qty</button>
 
 <table>
-  <tr *ngFor="let p of products">
-    <td>{{ renderName(p.name) }}</td>
-    <td style="font-size: 30px">{{ renderQuantity(p.quantity) }}</td>
+  <tr *ngFor="let p of products; trackBy: trackById">
+    <td>{{ p | productPipe:'name' }}</td>
+    <td style="font-size: 30px">{{ p | productPipe:'quantity' }}</td>
   </tr>
 </table>

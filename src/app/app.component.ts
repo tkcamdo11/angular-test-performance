@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
-interface product {
+export interface product {
   id: number,
   name: string,
   quantity: number,
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   title = 'my-app';
   products!: product[];
 
-  ngOnInit(){
+  ngOnInit() {
     this.products = [
       {
         id: 1,
@@ -28,28 +28,20 @@ export class AppComponent implements OnInit {
         id: 2,
         name: 'sản phẩm 2',
         quantity: 2,
-        money:  70000
+        money: 70000
       },
     ]
   }
 
-
-  renderName(name: string){
-    console.log('renderName')
-    let r = (Math.random() + 1).toString(36).substring(7);
-    return name;
+  trackById(index: number, item: product) {
+    return item.id;
   }
-
-  renderQuantity(qty: number){
-    console.log('renderQuantity')
-    return qty;
-  }
-
-  click(id: number){
+  click(id: number) {
     this.products.map(item => {
-      if (item.id == id){
+      if (item.id == id) {
         item.quantity = item.quantity + 1
       }
     })
+    this.products = [...this.products];
   }
 }
