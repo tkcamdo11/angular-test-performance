@@ -1,0 +1,8 @@
+<button (click)="click(1)">click qty</button>
+
+<table>
+  <tr *ngFor="let p of products">
+    <td>{{ renderName(p.name) }}</td>
+    <td style="font-size: 30px">{{ renderQuantity(p.quantity) }}</td>
+  </tr>
+</table>
