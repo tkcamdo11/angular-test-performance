@@ -10,7 +10,6 @@ export interface product {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   title = 'my-app';
@@ -39,9 +38,13 @@ export class AppComponent implements OnInit {
   click(id: number) {
     this.products.map(item => {
       if (item.id == id) {
-        item.quantity = item.quantity + 1
+        return {
+          ...item,
+          quantity: item.quantity + 1
+        }
       }
+      return item;
     })
-    this.products = [...this.products];
+    // this.products = [...this.products];
   }
 }

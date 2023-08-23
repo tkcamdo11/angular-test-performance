@@ -5,7 +5,6 @@ type FieldsPipe = 'name' | 'quantity';
 
 @Pipe({
   name: 'productPipe',
-  pure: false
 })
 export class PosAddProductPipe implements PipeTransform {
   item!: product;
